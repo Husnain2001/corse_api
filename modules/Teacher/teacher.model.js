@@ -3,16 +3,16 @@ var dbConn = require('../../config/db.config');
 //ListingCategoSubry object create
 
 var Teacher = function (teachers) {
-  this.Name = teachers.Name;
-  this.Email = teachers.Email;
-  this.Password = teachers.Password;
-  this.Department = teachers.Department;
+  this.name = teachers.name;
+  this.email = teachers.email;
+  this.password = teachers.password;
+  this.department = teachers.department;
   this.created_at = new Date();
   this.updated_at = new Date();
 };
 Teacher.create = function (teachers, result) {
-  dbConn.query("INSERT INTO teacher set Name=?, Email=?, Password=?, Department=?",
-    [teachers.Name, teachers.Email, teachers.Password, teachers.Department], function (err, res) {
+  dbConn.query("INSERT INTO teacher set name=?, email=?, password=?, department=?",
+    [teachers.name, teachers.email, teachers.password, teachers.department], function (err, res) {
       if (err) {
         console.log("error: ", err);
         result(err, null);
